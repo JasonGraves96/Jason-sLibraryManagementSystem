@@ -11,13 +11,29 @@ public class Book {//this is the custom object Book class
     private String title;
     private String author;
     private int id;
+    private boolean checkedIn;
+    private double lateFees;
+    private String whoHasMe;
 
-    public Book(String x,String y, int i) {
+    public String getWhoHasMe() {
+        return whoHasMe;
+    }
+
+    public void setWhoHasMe(String whoHasMe) {
+        this.whoHasMe = whoHasMe;
+    }
+
+
+
+
+    public Book(String x, String y, int i) {
         super();
         setTitle(x);
         setAuthor(y);
         setId(i);
-
+        setCheckedIn(true);
+        setLateFees(0.00);
+        setWhoHasMe("library");
     }
 
     @Override
@@ -47,5 +63,22 @@ public class Book {//this is the custom object Book class
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isCheckedIn() {
+        return checkedIn;
+    }
+
+    public void setCheckedIn(boolean checkedIn) {
+        this.checkedIn = checkedIn;
+    }
+
+
+    public double getLateFees() {
+        return lateFees;
+    }
+
+    public void setLateFees(double lateFees) {
+        this.lateFees = lateFees;
     }
 }
