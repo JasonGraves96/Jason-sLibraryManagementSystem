@@ -3,7 +3,12 @@
 // Professor Walauskis
 //3/10/2024
 
-
+/**
+ * Represents a person who can check out books from the library.
+ * 
+ * This class manages information about library patrons, including their name, ID, books checked out, and total late fees.
+ * Each person has a list of books they currently have checked out, along with their accumulated late fees.
+ */
 
 import java.util.ArrayList;
 import java.util.Arrays;

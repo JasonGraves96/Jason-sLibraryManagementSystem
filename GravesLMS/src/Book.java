@@ -3,7 +3,13 @@
 // Professor Walauskis
 // 1/19/2024
 
-
+/**
+ * Represents a book in the library.
+ * 
+ * This class provides a template for creating book objects to be managed by the library system. Each book has attributes
+ * such as title, author, and ID. Additionally, it keeps track of whether the book is checked in or out, any late fees
+ * incurred, and who currently has possession of the book.
+ */
 
 public class Book {//this is the custom object Book class
     //its purpose is to provide the template for all these books this program is keeping track of

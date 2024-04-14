@@ -4,6 +4,14 @@
 // 3/24/2024
 // This is the new main class
 
+/**GUILMS is the class where almost everything happens in this program.
+ * There is a user interface which is defined in lines 74 to 249
+ * When a button on the GUI is pressed it fires an action listener, which then calls the corosponding method below
+ * Lines 249 to the end are where these methods are located
+ * 
+ * 
+ **/
+  
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -244,7 +252,16 @@ public class GUILMS {
 	//above this is mostly auto generated visual code with pointers to the functional methods I wrote below
 	
 	
-	
+	/**
+	 * 
+	 * @addBook
+	 * addBook adds the book to the database.
+	 * 
+	 * @tempBook is the temporary book created for the purpose of inserting into the sql later.
+	 * @authorName is the name of the author.
+	 * 
+	 * 
+	 */
 	public static void addBook(String title){//for manually adding new books
        //this method is kind of a hodge podge of the old text based book adding method and the new database one
 		
@@ -272,6 +289,16 @@ public class GUILMS {
 		}
     }//end addBook method
 	
+	/**
+	 * 
+	 * @addPerson
+	 * addPerson adds a new person to the database.
+	 * 
+	 * @tempPerson is the temporary person created for the purpose of inserting into the SQL later.
+	 * 
+	 * @param name the name of the person to be added
+	 * 
+	 * */
 	
 	public static void addPerson(String name){//new person
       
@@ -298,6 +325,16 @@ public class GUILMS {
     }//end addPerson
 	
 	
+	
+	/**
+	 * Lists all the books in the library.
+	 * @listBooks
+	 * listBooks prints out all the books in the library.
+	 * @bookTitles an ArrayList containing the titles of all the books in the library
+	 * @authorNames an ArrayList containing the names of all the authors in the library
+	 * @textBox the string containing the formatted list of books to be displayed
+	 * @return a string containing the titles and authors of all the books in the library
+	 */
 	public static String listBooks(){//prints out all the books in the library
 		ArrayList<String> bookTitles = new ArrayList<>();//two ArrayLists for the book titles and author names to be displayed later
 		ArrayList<String> authorNames = new ArrayList<>();
@@ -360,7 +397,14 @@ public class GUILMS {
 	return textBox;
 	}//end listBooks
 	
-	
+	/**
+	 * Removes a book from the database.
+	 * 
+	 * @removeBook
+	 * removeBook removes a book from the database.
+	 * 
+	 * @param title the title of the book to be removed
+	 */
 	public static void removeBook(String title) {//method to remove book from database
 	    try {//connection stuff
 	        Connection conn = DriverManager.getConnection(  
@@ -387,6 +431,15 @@ public class GUILMS {
 	    }
 	}//end remove book
 	
+	
+	/**
+	 * Removes a person from the database.
+	 * 
+	 * @removePerson
+	 * removePerson removes a person from the database.
+	 * 
+	 * @param name the name of the person to be removed
+	 */
 	public static void removePerson(String name) {//the same as above method only with my Person table
 	    try {
 	        Connection conn = DriverManager.getConnection(  
@@ -415,7 +468,17 @@ public class GUILMS {
 	
 	
 	
-	
+	/**
+	 * Lists all the people in the database.
+	 * 
+	 * @listPeople
+	 * listPeople prints out all the people in the database.
+	 * 
+	 * @peopleNames an ArrayList containing the names of all the people in the database
+	 * @textBox the string containing the formatted list of people to be displayed
+	 * 
+	 * @return a string containing the names of all the people in the database
+	 */
 	public static String listPeople() {//method to display a list of people
 	    ArrayList<String> peopleNames = new ArrayList<>();//an ArrayList of the people's names
 	    String textBox = null;//the textbox which will be returned
@@ -451,7 +514,16 @@ public class GUILMS {
 	}//end removePerson method
 	
 	
-
+	/**
+	 * Checks out a book to a person. The way it generally works is passing in the title from the user defined text box, then using an SQL query it updates the fields in the database telling it that the book is checked out and who took it out
+	 * 
+	 * @checkOutBook
+	 * checkOutBook checks out a book to a person.
+	 * 
+	 * @param title the title of the book to be checked out
+	 * 
+	 * 
+	 */
 	public static void checkOutBook(String title) {//method for checking out books. The most complicated one in the program
 	    try {
 	    	//although the date stuff is not being displayed to the user yet, behind the scenes the due date is still being kept track of
@@ -526,6 +598,15 @@ public class GUILMS {
 	}//end checkoutbook
 	
 	
+	
+	/**
+	 * Checks in a book to the library. The reverse of checking out books.
+	 * 
+	 * @checkInBook
+	 * checkInBook checks in a book to the library.
+	 * 
+	 * @param title the title of the book to be checked in
+	 */
 	public static void checkInBook(String title) {//thankfully checking in a book is much simpler
 	    try {//connection stuff
 	        Connection conn = DriverManager.getConnection(  
@@ -557,7 +638,18 @@ public class GUILMS {
 	
 	
 	
-	
+	/**
+	 * Prints out the status of all the books in the library, including who has them.
+	 * 
+	 * @bookStatus
+	 * bookStatus prints out the status of all the books in the library.
+	 * 
+	 * @bookTitles an ArrayList containing the titles of all the books in the library
+	 * @personNames an ArrayList containing the names of the people who have the books
+	 * @textBox the string containing the formatted status of all the books to be displayed
+	 * 
+	 * @return a string containing the status of all the books in the library
+	 */
 	private String bookStatus() {//this method prints out all the books in the library, and states who has them
 		//it's basically the print book method from above, only instead of displaying the author, it displays who is in possession of the book
 				ArrayList<String> bookTitles = new ArrayList<>();
@@ -625,7 +717,16 @@ public class GUILMS {
 			return textBox;
 			}//end book status
 	
-	
+	/**
+	 * Calculates and displays the late fees for overdue books.
+	 * 
+	 * @lateFeeCalculator
+	 * lateFeeCalculator calculates and displays the late fees for overdue books.
+	 * 
+	 * @result a StringBuilder object containing the calculated late fees and corresponding book titles
+	 * 
+	 * @return a string containing the titles of overdue books and the corresponding late fees
+	 */
 	private String lateFeeCalculator() {//this method calculates and displays the late fees
 	    StringBuilder result = new StringBuilder();//instead of using a regular string I decided to use StringBuilder to learn how it works
 	    

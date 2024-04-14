@@ -2,8 +2,11 @@
 // Software Development I
 // Professor Walauskis
 // 1/19/2024
-
-
+//
+/**
+ * this is an unused class??
+ * leftover from when this was a text application
+ */
 
 import java.io.*;
 import java.net.URISyntaxException;
